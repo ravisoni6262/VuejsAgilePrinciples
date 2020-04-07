@@ -7,10 +7,12 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    principlesArray: Array<Principles>()
+    principlesArray: Array<Principles>(),
+    isLoading: Boolean
   },
   actions: {
     loadPrinciples({ commit }) {
+      commit("SET_LOADING", true);
       axios
         .get("http://localhost:4000/", {
           headers: {
@@ -19,15 +21,16 @@ export default new Vuex.Store({
         })
         .then(principles => {
           commit("SET_PRINCIPLES", principles);
-        })
-        .catch(e => {
-          console.log(e);
+          commit("SET_LOADING", false);
         });
     }
   },
   mutations: {
     SET_PRINCIPLES(state, principles) {
       state.principlesArray = principles.data;
+    },
+    SET_LOADING(state, value) {
+      state.isLoading = value;
     }
   },
   modules: {}

@@ -45,7 +45,6 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import { Principles } from "../types";
 import Slider from "@/views/Slider.vue";
 
 @Component({
@@ -54,8 +53,6 @@ import Slider from "@/views/Slider.vue";
   }
 })
 export default class AgilePrinciples extends Vue {
-  principleArray: Principles | null = null;
-
   created() {
     this.$store.dispatch("loadPrinciples");
   }

@@ -21,3 +21,7 @@ node_modules
 # local env files
 .env.local
 .env.*.local
+
+/agileprinciples-app/tests/e2e/screenshots
+/agileprinciples-app/tests/e2e/videos
+/agileprinciples-app/.browserslistrc

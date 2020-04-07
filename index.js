@@ -14,8 +14,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get('/', (_req,res,_next) => {
    Principles.find({})
              .exec()
-             .then(data => {
-                    res.status(200).json({ data });
+             .then((data) => {
+                    res.status(200).json({ data:data,
+                    length:data.length });
               })
               .catch(err => {
                 res.status(500).json({ err });

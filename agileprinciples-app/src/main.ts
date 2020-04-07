@@ -11,3 +11,7 @@ new Vue({
   store,
   render: h => h(App)
 }).$mount("#app");
+
+if (window.Cypress) {
+  window.Store = store;
+}
